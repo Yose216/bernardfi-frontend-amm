@@ -4,92 +4,90 @@ const config: MenuEntry[] = [
   {
     label: 'Home',
     icon: 'HomeIcon',
-    href: 'https://www.goosedefi.com/'
+    href: 'https://app.bernard.finance',
+  },
+  {
+    label: 'Stake',
+    icon: 'FarmIcon',
+    items: [
+      {
+        label: 'Farms',
+        href: 'https://app.bernard.finance/farms',
+      },
+      {
+        label: 'Pools',
+        href: 'https://app.bernard.finance/nests',
+      },
+    ],
   },
   {
     label: 'Trade',
     icon: 'TradeIcon',
-    initialOpenState: true,
     items: [
       {
         label: 'Exchange',
-        href: '/swap'
+        href: '/swap',
       },
       {
         label: 'Liquidity',
-        href: '/pool'
-      }
-    ]
+        href: '/pool',
+      },
+    ],
   },
   {
-    label: 'Farms',
-    icon: 'FarmIcon',
-    href: 'https://www.goosedefi.com/farms'
+    label: 'Play',
+    icon: 'TicketIcon',
+    items: [
+      {
+        label: 'Lottery',
+        href: 'https://app.bernard.finance/lottery',
+      },
+      {
+        label: 'Bets',
+        href: 'https://app.bernard.finance/bets',
+      },
+      {
+        label: 'BFC',
+        href: 'https://app.bernard.finance/bfc',
+      },
+    ],
   },
   {
-    label: 'Nests',
-    icon: 'PoolIcon',
-    href: 'https://www.goosedefi.com/nests'
+    label: 'NFT Marketplace',
+    icon: 'NftIcon',
+    href: 'https://app.bernard.finance/marketplace-nft',
   },
-  // {
-  //   label: 'Lottery',
-  //   icon: 'TicketIcon',
-  //   href: 'https://www.goosedefi.com/lottery'
-  // },
   {
-    label: 'Info',
+    label: 'Ecosystem',
     icon: 'InfoIcon',
     items: [
       {
-        label: 'PancakeSwap',
-        href: 'https://pancakeswap.info/token/0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6',
+        label: 'Infos',
+        href: 'https://app.bernard.finance/infos',
       },
       {
-        label: 'CoinGecko',
-        href: 'https://www.coingecko.com/en/coins/goose-finance',
+        label: 'Algo Perfs',
+        href: 'https://app.bernard.finance/algo',
       },
       {
-        label: 'CoinMarketCap',
-        href: 'https://coinmarketcap.com/currencies/goose-finance/',
+        label: 'Barry Foundation',
+        href: 'https://app.bernard.finance/barry-foundation',
       },
-      {
-        label: 'AstroTools',
-        href: 'https://app.astrotools.io/pancake-pair-explorer/0x19e7cbecdd23a16dfa5573df54d98f7caae03019',
-      },
-    ]
+    ],
   },
   {
     label: 'More',
     icon: 'MoreIcon',
     items: [
       {
-        label: "Github",
-        href: "https://github.com/goosedefi/",
+        label: 'Docs',
+        href: 'https://bernard-finance.gitbook.io/bernardswap/',
       },
       {
-        label: "Docs",
-        href: "https://goosedefi.gitbook.io/goose-finance/",
-      },
-      {
-        label: "Blog",
-        href: "https://goosefinance.medium.com/",
+        label: 'Blog',
+        href: 'https://bernardfinance.medium.com/',
       },
     ],
-  },
-  {
-    label: 'Partnerships/IFO',
-    icon: 'GooseIcon',
-    href: 'https://docs.google.com/forms/d/e/1FAIpQLSe7ycrw8Dq4C5Vjc9WNlRtTxEhFDB1Ny6jlAByZ2Y6qBo7SKg/viewform?usp=sf_link',
-  },
-  {
-    label: 'Audit by Hacken',
-    icon: 'AuditIcon',
-    href: 'https://www.goosedefi.com/files/hackenAudit.pdf',
-  },
-  {
-    label: 'Audit by CertiK',
-    icon: 'AuditIcon',
-    href: 'https://certik.org/projects/goose-finance',
   },
 ]
 
