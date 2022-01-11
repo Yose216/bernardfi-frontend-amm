@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@pancakeswap-libs/sdk'
+import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@overage69/pancake-sdk-v2'
 import { Button, CardBody, AddIcon, Text as UIKitText } from '@pancakeswap-libs/uikit'
 import { RouteComponentProps } from 'react-router-dom'
 import { LightCard } from 'components/Card'
@@ -309,7 +309,7 @@ export default function AddLiquidity({
             )}
             pendingText={pendingText}
           />
-          <CardBody>
+          <CardBody style={{background: '#27262c'}}>
             <AutoColumn gap="20px">
               {noLiquidity && (
                 <ColumnCenter>

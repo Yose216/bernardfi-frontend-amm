@@ -3,6 +3,8 @@ import BigNumber from 'bignumber.js'
 import { useMulticallContract } from './useContract'
 import ERC20_INTERFACE from '../constants/abis/erc20'
 import priceContracts from '../constants/bonesPriceContracts'
+import barrelPriceContracts from '../constants/barrelPriceContracts'
+import bernPriceContracts from '../constants/bernPriceContracts'
 
 type ApiResponse = {
   prices: {
@@ -29,6 +31,72 @@ const useGetPriceData = () => {
           const {cakeAddress, busdAddress, lpAddress} = priceContracts;
           const calls = [
             [cakeAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
+            [busdAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
+          ];
+
+          const [resultsBlockNumber, result] = await multicallContract.aggregate(calls);
+          const [cakeAmount, busdAmount] = result.map(r=>ERC20_INTERFACE.decodeFunctionResult("balanceOf", r));
+          const cake = new BigNumber(cakeAmount);
+          const busd = new BigNumber(busdAmount);
+          const cakePrice = busd.div(cake).toNumber();
+          setData(cakePrice)
+        }
+      } catch (error) {
+        console.error('Unable to fetch price data:', error)
+      }
+    }
+
+    fetchData()
+  }, [multicallContract])
+
+  return data
+}
+
+export const useGetPriceDataBarrel = () => {
+  const [data, setData] = useState<number>(0)
+
+  const multicallContract = useMulticallContract();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if(multicallContract){
+          const {barrelAddress, busdAddress, lpAddress} = barrelPriceContracts;
+          const calls = [
+            [barrelAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
+            [busdAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
+          ];
+
+          const [resultsBlockNumber, result] = await multicallContract.aggregate(calls);
+          const [cakeAmount, busdAmount] = result.map(r=>ERC20_INTERFACE.decodeFunctionResult("balanceOf", r));
+          const cake = new BigNumber(cakeAmount);
+          const busd = new BigNumber(busdAmount);
+          const cakePrice = busd.div(cake).toNumber();
+          setData(cakePrice)
+        }
+      } catch (error) {
+        console.error('Unable to fetch price data:', error)
+      }
+    }
+
+    fetchData()
+  }, [multicallContract])
+
+  return data
+}
+
+export const useGetPriceDataBern = () => {
+  const [data, setData] = useState<number>(0)
+
+  const multicallContract = useMulticallContract();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if(multicallContract){
+          const {bernAddress, busdAddress, lpAddress} = bernPriceContracts;
+          const calls = [
+            [bernAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
             [busdAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
           ];
 

@@ -4,7 +4,7 @@ const config: MenuEntry[] = [
   {
     label: 'Home',
     icon: 'HomeIcon',
-    href: 'https://app.bernard.finance',
+    href: 'https://bernard.finance',
   },
   {
     label: 'Stake',
@@ -12,11 +12,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Farms',
-        href: 'https://app.bernard.finance/farms',
+        href: 'https://bernard.finance/farms',
       },
       {
         label: 'Pools',
-        href: 'https://app.bernard.finance/nests',
+        href: 'https://bernard.finance/nests',
       },
     ],
   },
@@ -40,22 +40,22 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Lottery',
-        href: 'https://app.bernard.finance/lottery',
+        href: 'https://bernard.finance/lottery',
       },
       {
         label: 'Bets',
-        href: 'https://app.bernard.finance/bets',
+        href: 'https://bernard.finance/bets',
       },
       {
         label: 'BFC',
-        href: 'https://app.bernard.finance/bfc',
+        href: 'https://bernard.finance/bfc',
       },
     ],
   },
   {
     label: 'NFT Marketplace',
     icon: 'NftIcon',
-    href: 'https://app.bernard.finance/marketplace-nft',
+    href: 'https://bernard.finance/marketplace-nft',
   },
   {
     label: 'Ecosystem',
@@ -63,15 +63,15 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Infos',
-        href: 'https://app.bernard.finance/infos',
+        href: 'https://bernard.finance/infos',
       },
       {
         label: 'Algo Perfs',
-        href: 'https://app.bernard.finance/algo',
+        href: 'https://bernard.finance/algo',
       },
       {
         label: 'Barry Foundation',
-        href: 'https://app.bernard.finance/barry-foundation',
+        href: 'https://bernard.finance/barry-foundation',
       },
     ],
   },

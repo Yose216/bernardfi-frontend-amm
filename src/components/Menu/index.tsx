@@ -4,7 +4,7 @@ import { useWeb3React } from '@web3-react/core'
 import { allLanguages } from 'constants/localisation/languageCodes'
 import { LanguageContext } from 'hooks/LanguageContext'
 import useTheme from 'hooks/useTheme'
-import useGetPriceData from 'hooks/useGetPriceData'
+import useGetPriceData, { useGetPriceDataBarrel, useGetPriceDataBern } from 'hooks/useGetPriceData'
 import { injected, bsc, walletconnect } from 'connectors'
 import links from './config'
 
@@ -13,13 +13,16 @@ const Menu: React.FC = props => {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
   const cakePriceUsd = useGetPriceData()
+  const barrelPriceUsd = useGetPriceDataBarrel()
+  const bernPriceUsd = useGetPriceDataBern()
 
   return (
     <UikitMenu
       links={links}
-      bernPriceLink="https://www.coingecko.com/"
-      barrelPriceLink="https://www.coingecko.com/"
-      bonesPriceLink="https://www.coingecko.com/"      account={account as string}
+      bernPriceLink="https://www.defined.fi/bsc/0x27d0408a868cf4e89b37d20b5e32888dced95bcb"
+      barrelPriceLink="https://www.defined.fi/bsc/0xdb1b7a685e6876d508de3c5160764b56577a83ae"
+      bonesPriceLink="https://www.defined.fi/bsc/0x16d1e6fe08e77713989f6a7c1e01db0494caa6d1"
+      account={account as string}
       login={(connectorId: ConnectorId) => {
         if (connectorId === 'walletconnect') {
           return activate(walletconnect)
@@ -37,8 +40,8 @@ const Menu: React.FC = props => {
       currentLang={selectedLanguage?.code || ''}
       langs={allLanguages}
       setLang={setSelectedLanguage}
-      bernPriceUsd={cakePriceUsd}
-      barrelPriceUsd={cakePriceUsd}
+      bernPriceUsd={bernPriceUsd}
+      barrelPriceUsd={barrelPriceUsd}
       bonesPriceUsd={cakePriceUsd}
       {...props}
     />
